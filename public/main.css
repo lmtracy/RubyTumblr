@@ -1,6 +1,7 @@
 body {
     font-family: 'Tajawal', sans-serif;
     height: 100%;
+    /* background-color: linear-gradient(rgba(0, 0, 0, 0.5); */
     background-image: url("images/bg/random.image.php");
     background-size: cover;
     background-attachment: fixed;
@@ -19,11 +20,11 @@ body {
 
 .loginForm {
     align-items: center;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .logo {
-    filter: drop-shadow(5px 5px 5px rgba(34, 34, 34, 0.404));
+    filter: drop-shadow(5px 5px 5px rgba(34, 34, 34, 0.548));
 }
 
 a {

@@ -1,12 +1,8 @@
 require 'sinatra'
 require 'sinatra/activerecord'
-require 'pry'
+require "sinatra/flash"
+require "./models"
 
-
-# require_relative './models/user'
-# require_relative './models/post'
-# require_relative './models/tag'
-# require_relative './models/tagging'
 
 enable :sessions
 
@@ -14,31 +10,24 @@ set :database, "sqlite3:app.db"
 
 get "/" do
   if session[:user_id]
-    erb :main_loggedout
-  else
     erb :main
+  else
+    erb :main_loggedout
   end
 end
 
-# displays sign in form
-get "/sign-in" do
-  erb :sign_in
+# # # displays sign in form
+get "/login" do
+  erb :main
 end
 
 # responds to sign in form
-post "/sign-in" do
+post "/login" do
   @user = User.find_by(username: params[:username])
 
-  # checks to see if the user exists
-  #   and also if the user password matches the password in the db
+
   if @user && @user.password == params[:password]
-    # this line signs a user in
     session[:user_id] = @user.id
-
-    # lets the user know that something is wrong
-    flash[:info] = "You have been signed in"
-
-    # redirects to the home page
     redirect "/"
   else
     # lets the user know that something is wrong
@@ -46,23 +35,23 @@ post "/sign-in" do
 
     # if user does not exist or password does not match then
     #   redirect the user to the sign in page
-    redirect "/sign-in"
+    redirect "/main_loggedout"
   end
 end
 
-# displays signup form
-#   with fields for relevant user information like:
-#   username, password
-get "/sign-up" do
-  erb :sign_up
+get "/signup" do
+  erb :signup
 end
 
-post "/sign-up" do
+post "/signup" do
   @user = User.create(
     username: params[:username],
-    password: params[:password]
+    password: params[:password],
+    first_name: params[:first_name],
+    last_name: params[:last_name],
+    email: params[:email],
+    birthday: params[:birthday]
   )
-
   # this line does the signing in
   session[:user_id] = @user.id
 
@@ -72,6 +61,22 @@ post "/sign-up" do
   # assuming this page exists
   redirect "/"
 end
+
+get "/posts" do
+  @posts = Post.all
+  @user = User.first
+end
+
+get "posts/new" do
+  erb :main
+end
+
+get "/users" do
+  @users = User.all
+  @post = Post.last
+end
+
+
 
 # when hitting this get path via a link
 #   it would reset the session user_id and redirect
