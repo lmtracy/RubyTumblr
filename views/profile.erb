@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col s12 m9">
+            <h3> Hello, <%= @user.first_name %> <%= @user.last_name %>! </h3></div>  
+        <div class="col s12 m3"></div>
+    </div>
+    <div class="row">
+        <div class="col s12 m9">
+            <h4>You can manage your profile here</h4></div>
+        <div class="col s12 m3">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m9">
+            <img id="profile-image" src="/images/image2.jpg"></div>
+        <div class="col s12 m3">
+            <div class="row" id="profile-menu">
+                <div class="col s12"><a class="waves-effect waves-light btn" href="/profile/edit">Update Profile</a></div>
+                <div class="col s12"><a class="waves-effect waves-light btn" href="/profile/delete">Delete Profile</a></div>
+                <div class="col s12"><a class="waves-effect waves-light btn" href="/post/new">Create a Post</a></div>
+                <div class="col s12"><a class="waves-effect waves-light btn" href="/posts">Read New Posts</a></div>
+                <div class="col s12"><a class="waves-effect waves-light btn" href="/myposts">See Your Posts</a></div>
+            </div>
+        </div>
+    </div>
+</div>
