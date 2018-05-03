@@ -5,6 +5,6 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :content
       t.datetime :created_at
       t.integer :user_id
+    end
   end
-end
 end

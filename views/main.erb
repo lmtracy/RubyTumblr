@@ -14,14 +14,15 @@
 
 </form>
 
-<ul>
-  <% @posts.each do |post| %>
-    <li> <%= post.title %> </li>
-    <li> <%= post.content %> </li>
-    <li> <%= post.created_at %> </li>
-  <% end %>
-</ul>
+<div class="userPosts">
 
+  <% @posts.each do |post| %>
+    <p> <%= post.title %> </p>
+    <p> <%= post.content %> </p>
+    <p> <%= post.created_at %> </p>
+  <% end %>
+
+</div>
 
 
 <%# <div class="container">

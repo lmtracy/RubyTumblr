@@ -32,7 +32,7 @@ post "/login" do
   @user = User.find_by(username: params[:username])
   if @user && @user.password == params[:password]
     session[:user_id] = @user.id
-    redirect "/main"
+    redirect "/loggingin"
   else
     # lets the user know that something is wrong
     flash[:warning] = "Your username or password is incorrect"
