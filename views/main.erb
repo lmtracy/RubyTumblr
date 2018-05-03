@@ -1,5 +1,31 @@
-<div class="container">
-  <form action="/posts/new" method="post">
+<a href="/signout">Sign Out</a>
+<a href="/profile">Profile</a>
+
+<form action="/post" method="post">
+  <div>
+    <label for="Title">Name:</label>
+    <input type="text" id="title" name="title">
+  </div>
+  <div>
+    <label for="content">Your Text Here:</label>
+    <textarea id="text" name="content"></textarea>
+  </div>
+   <button type="submit" class="submitPost">Post</button>
+
+</form>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li> <%= post.title %> </li>
+    <li> <%= post.content %> </li>
+    <li> <%= post.created_at %> </li>
+  <% end %>
+</ul>
+
+
+
+<%# <div class="container">
+  <form action="/post" method="post">
     <div class="card my-5 col-lg-8 offset-lg-2">
       <div class="card-body">
         <blockquote class="blockquote mb-0">
@@ -27,4 +53,4 @@
       </div>
     </div>
   </form>
-</div>
+</div> %>
