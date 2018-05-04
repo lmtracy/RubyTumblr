@@ -19,6 +19,8 @@ get "/" do
 end
 
 get "/loggingin" do
+  @user = User.find(session[:user_id])
+
   erb :loggingin
 end
 
@@ -56,30 +58,31 @@ post "/signup" do
     email: params[:email],
     birthday: params[:birthday]
   )
-  # this line does the signing in
   session[:user_id] = @user.id
 
-  # lets the user know they have signed up
   flash[:info] = "Thank you for signing up"
 
-  # assuming this page exists
   redirect "/main"
 end
 
 get "/main" do
   @posts = Post.all.order("created_at DESC")
+  @users = User.all
   erb :main
 end
  
 get "/post" do
   @posts = Post.all
-  @user = User.first
+  # @user = User.first
+  @user = User.find(session[:user_id])
+
   erb :post
 end
 
 post "/post" do
-  # @user = current_user
-  @post = Post.create(title: params[:title], content: params[:content])
+  @post = Post.create(title: params[:title], content: params[:content], image: params[:image], user_id: session[:user_id])
+  # @post = current_user.posts.build(title: params[:title], content: params[:content], user_id: session[:user_id])
+
   redirect "/main"
 end
 
@@ -90,19 +93,32 @@ get "/users" do
   # erb :users
 end
 
+get "/profile" do
+  @user = User.find(session[:user_id])
+  # @posts = @user.posts
+  erb :profile
+  end
+
+
 get "profile/:id" do
   @user = user.find(params[:user_id])
 end
 
-# when hitting this get path via a link
-#   it would reset the session user_id and redirect
-#   back to the homepage
+
 get "/signout" do
-  # this is the line that signs a user out
   session[:user_id] = nil
 
-  # lets the user know they have signed out
   flash[:info] = "You have been signed out"
   
   redirect "/login"
+end
+
+get "/delete" do 
+  erb :delete
+end
+
+delete "/delete" do
+  @user = User.find(session[:user_id])
+  @user.destroy
+  redirect to("/")
 end

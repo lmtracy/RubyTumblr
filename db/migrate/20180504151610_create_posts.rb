@@ -3,7 +3,8 @@ class CreatePosts < ActiveRecord::Migration[5.2]
     create_table :posts do |t|
       t.string :title
       t.string :content
-      t.created_at.strftime("%Y-%m-%d")
+      t.string :image
+      t.datetime :created_at
       t.integer :user_id
     end
   end

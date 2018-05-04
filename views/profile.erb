@@ -1,2 +1,12 @@
 <%= @user.username %>
-<%= @user.password %>
+
+<ul>
+<% for post in @user.posts %>
+
+
+<li> <%= post.title%> </li>
+<li> <%= post.content%> </li>
+
+
+<% end %>
+</ul>

@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Satisfy";
+    src: url("Satisfy-Regular.ttf");
+  }
+
 body {
     font-family: 'Tajawal', sans-serif;
     height: 100%;
@@ -21,14 +26,25 @@ body {
 .loginForm {
     align-items: center;
     font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    width: 100%;
+    margin: auto;
 }
 
-.logo {
+.logoTxt {
+    font-family: "Satisfy";
+    font-size: 15vw;
+    color: #7B287D;
+    filter: drop-shadow(5px 5px 5px rgba(34, 34, 34, 0.548));
+}
+
+/* .logo {
     width: 80%;
     filter: drop-shadow(5px 5px 5px rgba(34, 34, 34, 0.548));
     text-align: center;
     margin: auto;
-}
+} */
 
 a {
     text-decoration: none;
@@ -59,6 +75,7 @@ nav {
     box-sizing: border-box;
     padding: 12px 18px;
     margin: 0;
+    overflow: hidden;
   }
   
   nav .navbar-right {
@@ -75,6 +92,8 @@ nav {
     padding-right: 20px;
     text-decoration: none;
   }
+
+
   
 .userPosts {
     width: 60%;
