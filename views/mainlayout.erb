@@ -4,17 +4,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="icon" href="images/favicon.png" type="image/gif" sizes="16x16">
-    <%# <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"> %>
     <link href="https://fonts.googleapis.com/css?family=Tajawal" rel="stylesheet">
     <title>Wandr</title>
 </head>
 <body>
-  <% flash.keys.each do |type| %>
-    <div class="flash <%= type %>">
-      <%= flash[type] %>
-      <a class="close-button" href="#">x</a>
-    </div>
-  <% end %>
+<nav>
+  <%# <a href="/" class="navbar-left"><img class="imgNav" src="images/logonav.png"></a> %>
+  <a href="/signout" class="navbar-right">Sign Out</a>
+  <a href="/profile" class="navbar-right">Profile</a>
+  <a href="/post" class="navbar-right">Make New Post</a>
+</nav>
 
      <%= yield %>
 
