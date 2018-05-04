@@ -7,8 +7,17 @@
   <a href="/post" class="navbar-right">Make New Post</a>
 </nav>
 
+<div class="userInfo">
+<p>User Info</p>
+<br><%= @user.username %>
+<br><img class="imgProf" src="<%= @user.userimage %>">"
+<br><%= @user.first_name %>
+<br><%= @user.last_name %>
+<br><%= @user.email %>
+<br><%= @user.birthday %>
+<br><a href="/delete">DELETE YOUR ACCOUNT</a>
+<div>
 
-<%= @user.username %>
 
 <div class="userPosts">
 <p>Posts by <%= @user.username %></p>
@@ -16,8 +25,12 @@
     <h2> <%= post.title %> </h2>
     </br> <%="by #{post.user.username}"%>
     <p class="content"> <%= post.content %> </p>
-    <p><img class="imgProf" src="<%= post.image %>" ></p>
+    <p><img class="imgPost" src="<%= post.image %>" ></p>
     <p> <%= "#{post.created_at.strftime("%b %d, %Y")}" %> </p>
+<%# form to delete posts %>
+  <form action="/post/<%= post.id %>/delete" method="post">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" value="delete">
+</form>
 <% end %>
-
 </div>
