@@ -1,12 +1,23 @@
+<nav>
+  <a href="/main" class="navbar-left">Wandr</a>
+  
+  
+  <a href="/signout" class="navbar-right">Sign Out</a>
+  <a href="/profile" class="navbar-right">Profile</a>
+  <a href="/post" class="navbar-right">Make New Post</a>
+</nav>
+
+
 <%= @user.username %>
 
-<ul>
+<div class="userPosts">
+<p>Posts by <%= @user.username %></p>
 <% for post in @user.posts %>
-
-
-<li> <%= post.title%> </li>
-<li> <%= post.content%> </li>
-
-
+    <h2> <%= post.title %> </h2>
+    </br> <%="by #{post.user.username}"%>
+    <p class="content"> <%= post.content %> </p>
+    <p><img class="imgProf" src="<%= post.image %>" ></p>
+    <p> <%= "#{post.created_at.strftime("%b %d, %Y")}" %> </p>
 <% end %>
-</ul>
+
+</div>

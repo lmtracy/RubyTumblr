@@ -107,11 +107,20 @@ nav {
     overflow: scroll;
 }
 
+.imgPost {
+    width: 100%;
+}
+
 h1 {
-    color: white;
+    color: #7B287D;
     text-align: center;
     padding-top: 25%;
-    font-size: 30px;
+    font-size: 60px;
+}
+
+h2 {
+    color: #7B287D;
+    padding: 2px;
 }
 
 .newPost {

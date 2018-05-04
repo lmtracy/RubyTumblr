@@ -53,6 +53,7 @@ post "/signup" do
   @user = User.create(
     username: params[:username],
     password: params[:password],
+    userimage: params[:userimage],
     first_name: params[:first_name],
     last_name: params[:last_name],
     email: params[:email],
@@ -80,22 +81,25 @@ get "/post" do
 end
 
 post "/post" do
-  @post = Post.create(title: params[:title], content: params[:content], image: params[:image], user_id: session[:user_id])
+  @post = Post.create(
+    title: params[:title], 
+    content: params[:content], 
+    image: params[:image], 
+    user_id: session[:user_id]
+    )
   # @post = current_user.posts.build(title: params[:title], content: params[:content], user_id: session[:user_id])
 
   redirect "/main"
 end
 
+#This page isn't functional, but is an easy way for me to track usernames and passwords
 get "/users" do
-  @users = User.all
-  @post = Post.last
   User.all.map { |user| "USERNAME: #{user.username} PASSWORD:#{user.password}" }.join(", ")
-  # erb :users
 end
 
 get "/profile" do
-  @user = User.find(session[:user_id])
-  # @posts = @user.posts
+  # @user = User.find(session[:user_id])
+  @posts = @user.posts
   erb :profile
   end
 
