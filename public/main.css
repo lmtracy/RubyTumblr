@@ -11,7 +11,6 @@ body {
     background-attachment: fixed;
     background-repeat: no repeat;
     background-position: center;
-    overflow: hidden;
 }
 
 .indexMain {
@@ -22,21 +21,22 @@ body {
     text-align: center;
 }
 
-
 .loginForm {
     align-items: center;
-    font-size: 18px;
+    font-size: 20px;
     background-color: rgba(0, 0, 0, 0.3);
     padding: 10px;
     width: 100%;
-    margin: auto;
+    margin: 0;
 }
 
 .logoTxt {
     font-family: "Satisfy";
-    font-size: 15vw;
+    font-size: 150px;
     color: #7B287D;
     filter: drop-shadow(5px 5px 5px rgba(34, 34, 34, 0.548));
+    margin: 0;
+    padding: 10px;
 }
 
 /* .logo {
@@ -84,24 +84,27 @@ nav {
      padding-right: 20px;
      text-decoration: none;
      font-size: 22px;
+     color: #7B287D;
   }
   
   nav .navbar-left {
     float: left;
     display: block;
-    padding-right: 20px;
+    padding-right: 50px;
     text-decoration: none;
+    font-family: "Satisfy";
+    color: #7B287D;
   }
 
-
-  
 .userPosts {
     width: 60%;
+    height: auto;
     background-color: whitesmoke;
     border: 1px;
     padding: 10px;
     margin: auto;
     box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.219);
+    overflow: scroll;
 }
 
 h1 {
