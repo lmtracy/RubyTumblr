@@ -98,7 +98,7 @@ delete "/post/:id/delete" do
   redirect "/profile"
 end
 
-# This page isn't functional, but is an easy way for me to track usernames and passwords
+# This page isn't functional, use to see list of existing sire users
 get "/users" do
   User.all.map { |user| "USERNAME: #{user.username} PASSWORD:#{user.password}" }.join(", ")
 end
