@@ -98,10 +98,10 @@ delete "/post/:id/delete" do
   redirect "/profile"
 end
 
-#This page isn't functional, but is an easy way for me to track usernames and passwords
-# get "/users" do
-#   User.all.map { |user| "USERNAME: #{user.username} PASSWORD:#{user.password}" }.join(", ")
-# end
+# This page isn't functional, but is an easy way for me to track usernames and passwords
+get "/users" do
+  User.all.map { |user| "USERNAME: #{user.username} PASSWORD:#{user.password}" }.join(", ")
+end
 
 get "/profile" do
   @user = User.find(session[:user_id])
@@ -130,6 +130,6 @@ end
 delete "/delete" do
   @user = User.find(session[:user_id])
   @user.destroy
-  redirect to("/")
+  redirect "/login"
 end
 
