@@ -92,6 +92,7 @@ post "/post" do
   redirect "/main"
 end
 
+#delete posts
 delete "/post/:id/delete" do
   @post = Post.find_by_id(params[:id])
   @post.delete
@@ -132,4 +133,3 @@ delete "/delete" do
   @user.destroy
   redirect "/login"
 end
-

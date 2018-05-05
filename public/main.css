@@ -39,6 +39,11 @@ body {
     padding: 10px;
 }
 
+.subTxt {
+    font-size: 100px;
+    color: #7B287D;
+}
+
 /* .logo {
     width: 80%;
     filter: drop-shadow(5px 5px 5px rgba(34, 34, 34, 0.548));
@@ -105,6 +110,10 @@ nav {
     margin: auto;
     box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.219);
     overflow: scroll;
+}
+
+.userInfo {
+
 }
 
 .imgPost {
