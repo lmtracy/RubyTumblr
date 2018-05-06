@@ -1,10 +1,8 @@
 <nav>
   <a href="/" class="navbar-left">Wandr</a>
-  
-  
   <a href="/signout" class="navbar-right">Sign Out</a>
-  <a href="/profile" class="navbar-right">Profile</a>
-  <a href="/post" class="navbar-right">Make New Post</a>
+  <a href="/profile" class="navbar-right"><img class="icons" src="images/profile.png" title="Profile"></a>
+  <a href="/post" class="navbar-right"><img class="icons" src="images/edit.png" title="Create Post"></a>
 </nav>
 
 
@@ -12,7 +10,8 @@
 
   <% @posts.each do |post| %>
     <h2> <%= post.title %> </h2>
-    </br><%="by #{post.user.username}"%>
+    <br><img class="imgProf" src="<%= post.user.userimage %>">
+    <br><%="by #{post.user.username}"%>
     <p class="content"> <%= post.content %> </p>
     <p><img class="imgPost" src="<%= post.image %>" ></p>
     <p> <%= "#{post.created_at.strftime("%b %d, %Y")}" %> </p>

@@ -68,7 +68,7 @@ end
 
 get "/main" do
   @posts = Post.all.order("created_at DESC")
-  @users = User.all
+  @user = User.all
   erb :main
 end
  
@@ -87,7 +87,6 @@ post "/post" do
     image: params[:image], 
     user_id: session[:user_id]
     )
-  # @post = current_user.posts.build(title: params[:title], content: params[:content], user_id: session[:user_id])
 
   redirect "/main"
 end
@@ -106,13 +105,13 @@ end
 
 get "/profile" do
   @user = User.find(session[:user_id])
-  @posts = @user.posts
+  @posts = @user.posts.order("created_at DESC")
   erb :profile
 end
 
 get "/profile/:id" do
   @user = User.find(session[:user_id])
-  @posts = @user.posts
+  @posts = @user.posts.order("created_at DESC")
 end
 
 
@@ -124,6 +123,7 @@ get "/signout" do
   redirect "/login"
 end
 
+#delete account
 get "/delete" do 
   erb :delete
 end
