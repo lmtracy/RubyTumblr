@@ -7,7 +7,16 @@ require "./models"
 
 enable :sessions
 
-set :database, "sqlite3:app.db"
+# Setting up Heroku deployment
+# set :database, "sqlite3:app.db"
+
+configure :development do
+  set :database, "sqlite3:app.db"
+end
+
+configure :production do
+  set :database, ENV["DATABASE_URL"]
+end
 
 #landing page
 get "/" do
