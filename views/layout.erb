@@ -2,18 +2,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="/main.css">
     <link rel="icon" href="images/favicon.png" type="image/gif" sizes="16x16">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <title>Wandr</title>
 </head>
 <body>
-  <% flash.keys.each do |type| %>
-    <div class="flash <%= type %>">
-      <%= flash[type] %>
-      <a class="close-button" href="#">x</a>
-    </div>
-  <% end %>
+
 
      <%= yield %>
 

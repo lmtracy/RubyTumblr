@@ -27,13 +27,14 @@ get "/" do
   end
 end
 
+#loading page when returning user logs in
 get "/loggingin" do
   @user = User.find(session[:user_id])
 
   erb :loggingin
 end
 
-# # # displays sign in form
+# displays sign in form
 get "/login" do
   erb :login
 end
@@ -54,6 +55,7 @@ post "/login" do
   end
 end
 
+#for users to register for site
 get "/signup" do
   erb :signup
 end
@@ -75,6 +77,7 @@ post "/signup" do
   redirect "/main"
 end
 
+#main page that displays all posts by each user
 get "/main" do
   @posts = Post.all.order("created_at DESC")
   @user = User.all
@@ -107,7 +110,7 @@ delete "/post/:id/delete" do
   redirect "/profile"
 end
 
-# This page isn't functional, use to see list of existing sire users
+# This page isn't part of site, use to see list of existing users
 get "/users" do
   User.all.map { |user| "USERNAME: #{user.username} PASSWORD:#{user.password}" }.join(", ")
 end
@@ -118,16 +121,24 @@ get "/profile" do
   erb :profile
 end
 
-get "/profile/:id" do
-  @user = User.find(session[:user_id])
+# get "/profile/:id" do
+#   @user = User.find(session[:user_id])
+#   @posts = @user.posts.order("created_at DESC")
+# end
+
+get "/userprofile" do
+  erb :userprofile
+end
+
+get "/userprofile/:id" do
+  @user = User.find(params[:id])
   @posts = @user.posts.order("created_at DESC")
+  erb :userprofile
 end
 
 
 get "/signout" do
   session[:user_id] = nil
-
-  flash[:info] = "You have been signed out"
   
   redirect "/login"
 end

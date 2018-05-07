@@ -1,0 +1,30 @@
+<nav>
+  <a href="/main" class="navbar-left">Wandr</a>
+  <a href="/signout" class="navbar-right">Sign Out</a>
+  <a href="/profile" class="navbar-right"><img class="icons" src="/images/profile.png" title="Profile"></a>
+  <a href="/post" class="navbar-right"><img class="icons" src="/images/edit.png" title="Create Post"></a>
+</nav>
+
+<div class="userInfo">
+<h3>User Info</h3>
+    <br><%= @user.username %>
+    <br><img class="imgProfPage" src="<%= @user.userimage %>">
+    <br>First Name: <%= @user.first_name %>
+    <br>Last Name: <%= @user.last_name %>
+    <br>Email: <%= @user.email %>
+    <br>Birthday: <%= @user.birthday.strftime("%b %d, %Y") %>
+</div>
+
+
+<div class="userPosts">
+<h3>Posts by <%= @user.username %></h3>
+<p></p>
+<% for post in @user.posts %>
+    <h2> <%= post.title %> </h2>
+    </br><%="by #{post.user.username}"%>
+    <p class="content"> <%= post.content %> </p>
+    <p><img class="imgPost" src="<%= post.image %>" ></p>
+    <p> <%= "#{post.created_at.strftime("%b %d, %Y")}" %> </p>
+    
+<% end %>
+</div>

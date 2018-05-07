@@ -36,41 +36,47 @@ body {
     color: #7B287D;
     filter: drop-shadow(5px 5px 5px rgba(34, 34, 34, 0.548));
     margin: 0;
-    padding: 10px;
+    padding-top: 10px;
 }
 
 .subTxt {
     font-size: 30px;
     color: #7B287D;
+    margin-top: -10px;
+    filter: drop-shadow(5px 5px 5px rgba(34, 34, 34, 0.548));
 }
 
-/* .logo {
-    width: 80%;
-    filter: drop-shadow(5px 5px 5px rgba(34, 34, 34, 0.548));
-    text-align: center;
+.rememberMe {
+    font-size: 18px;
+}
+
+.newUser {
+    background-color: #7B287D;
+    color: white;
+    width: 30%;
     margin: auto;
-} */
+    border-radius: 20px;
+    padding: 5px;
+    border: 0;
+}
+
+.regForm {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+}
 
 a {
     text-decoration: none;
-    color: white;
     font-size: 20px;
+}
+
+.btn {
+    color: white;
 }
 
 a:hover {
     color: black;
 }
-
-.flash {
-    border-radius: 2px;
-    padding: 20px;
-    margin-bottom: 10px;
-    position: relative;
-  }
-
-.flash.hide {
-    display: none;
-  }
 
   /* Navbar code */
 nav {
@@ -84,6 +90,7 @@ nav {
     overflow: hidden;
     background-color: whitesmoke;
     position: fixed;
+    box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.219);
   }
   
   nav .navbar-right {
@@ -157,6 +164,7 @@ nav {
     margin: auto;
     margin-top: 60px;
     box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.219);
+    text-align: center;
 }
 
 .imgPost {
@@ -174,8 +182,9 @@ nav {
 h1 {
     color: #7B287D;
     text-align: center;
-    padding-top: 25%;
+    padding-top: 20%;
     font-size: 60px;
+    filter: drop-shadow(5px 5px 5px rgba(34, 34, 34, 0.548));
 }
 
 h2 {
@@ -184,11 +193,19 @@ h2 {
     margin: 0;
 }
 
+h3 {
+    color: #7B287D;
+    text-align: center;
+    margin: 0;
+
+}
+
 .newPost {
     width: 60%;
     margin: auto;
     margin-top: 60px;
-
+    color: #7B287D;
+    font-size: 20px;
 }
 
 #title {
@@ -200,16 +217,21 @@ h2 {
     height: 300px;
 }
 
+#image {
+    width: 100%;
+}
+
 .content {
     font-size: 16px;
 }
 
 .loadingImg {
-    border: 16px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 16px solid #7B287D;
-    width: 100px;
-    height: 100px;
+    border: 10px solid transparent;
+    border-radius: 100%;
+    border-top: 10px solid #7B287D;
+    border-bottom: 10px solid #7B287D;
+    width: 60px;
+    height: 60px;
     animation: spin 2s linear infinite;
     margin: auto;
 }
@@ -217,4 +239,19 @@ h2 {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+.flash {
+    border-radius: 2px;
+    padding: 20px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+
+.flash.hide {
+    display: none;
+  }
+
+.flash.info {
+    background-color: aquamarine;
 }

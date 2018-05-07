@@ -1,7 +1,7 @@
 <div class="indexMain">
 <p class="logoTxt">Wandr</p>
 
-  <p>Create an account:</p>
+    <h3>Create an account</h3> 
   <div class="regForm">
       <form class="userForm" method="POST" action="/signup">
             <div class="inputField">
@@ -22,7 +22,7 @@
               
             <div class="inputField">
               <label for="birthday">Birthday</label>
-              <input id="birthday" type="text" class="datepicker" name="birthday"></div><br>
+              <input id="birthday" type="date" class="datepicker" name="birthday"></div><br>
 
           <div class="inputField">
               <label for="email">Email</label>
@@ -34,4 +34,11 @@
 
           <button class="submitButton" type="submit" id="submit-signup">Submit</button>
             </form>
+  <% flash.keys.each do |type| %>
+    <div class="flash <%= type %>">
+      <%= flash[type] %>
+      <a class="close-button" href="#">x</a>
+    </div>
+  <% end %>
+
 </div>

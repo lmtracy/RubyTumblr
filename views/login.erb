@@ -15,8 +15,13 @@
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Remember Me</label>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="subBut">Submit</button>
 </form>
+  <% flash.keys.each do |type| %>
+    <div class="flash <%= type %>">
+      <%= flash[type] %>
+    </div>
+  <% end %>
 <br>
-<p><a href="/signup">New User?</a></p>
+<button class="newUser"><a class="btn" href="/signup">New User?</a></button>
 </div>
