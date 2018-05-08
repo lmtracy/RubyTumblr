@@ -72,7 +72,7 @@ post "/signup" do
   )
   session[:user_id] = @user.id
 
-  flash[:info] = "Thank you for signing up"
+  # flash[:info] = "Thank you for signing up"
 
   redirect "/main"
 end

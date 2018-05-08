@@ -12,7 +12,7 @@
 <br>First Name: <%= @user.first_name %>
 <br>Last Name: <%= @user.last_name %>
 <br>Email: <%= @user.email %>
-<br>Birthday: <%= @user.birthday %>
+<br>Birthday: <%= @user.birthday.strftime("%b %d, %Y") %>
 <br><a href="/delete">DELETE YOUR ACCOUNT</a>
 </div>
 
