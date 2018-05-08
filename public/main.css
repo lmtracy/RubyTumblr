@@ -197,7 +197,6 @@ h3 {
     color: #7B287D;
     text-align: center;
     margin: 0;
-
 }
 
 .newPost {
@@ -206,6 +205,13 @@ h3 {
     margin-top: 60px;
     color: #7B287D;
     font-size: 20px;
+}
+
+.dltAcct {
+    color: white;
+    margin-top: 200px;
+    font-size: 36px;
+    filter: drop-shadow(5px 5px 5px rgba(34, 34, 34, 0.548));
 }
 
 #title {
